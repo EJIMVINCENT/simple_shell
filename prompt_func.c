@@ -10,21 +10,25 @@ void printPrompt()
 }
 
 
-void getPrompt(char *input, int *count)
+char *getPrompt(size_t *count)
 {
-	ssize_t = i;
+	size_t bufsize = 0;
+	char *input = NULL;
 
-	do
+	while (1)
 	{
-		i = getline(&input, count, STDIN_FILENO);
+		write(STDOUT_FILENO, "($) ", 4);
+		*count = getline(&input, &bufsize, stdin);
 		input[*count - 1] = '\0';
 
-		if (i = -1)
+		if (*count == -1)
 		{
 			perror("getline");
 			exit(EXIT_FAILURE);
 		}
 
-	}while (input[0] == '\0')
+		if (input[0] != '\0');
+			return (input);
+	}
 
 }

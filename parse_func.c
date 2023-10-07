@@ -7,23 +7,20 @@
 
 char **perseCom(char *input)
 {
-	char *args[128];
+	char **args;
 	char *token;
 	int count = 0;
 
-        token = strtok((char *)command, " ");
+	args = malloc(100 * sizeof(char *));
+
+        token = strtok(input, " ");
         while (token != NULL)
 	{
-		args[count] = _strdup(token);
-		if (args[count] == NULL)
-		{
-			perror("strdup");
-			exit(EXIT_FAILURE);
-		}
+		args[count] = _strdup(token);	
 		count++;
 		token = strtok(NULL, " ");
 	}
-	args[arg_count] = NULL;
+	args[count] = NULL;
 
 	return (args);
 }

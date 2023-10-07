@@ -8,16 +8,18 @@
 
 int main(int ac, char *argv[])
 {
-	char input[80];
-	int count;
+	(void) ac;
+	(void) argv;
+	char *input;
+	size_t count = 0;
 	char **commands;
 
 	while (1)
 	{
-		printPrompt();
-		getPrompt(input, &count);
-		commands =perseCom(input);
-		executeCom(commands);
+
+		input = getPrompt(&count);
+		commands = perseCom(input);
+		exeCom(commands);
 	}
 
 }

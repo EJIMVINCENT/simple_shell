@@ -58,6 +58,7 @@ int _strcmp(char *s1, char *s2)
  *
  * Return: the pointer to dest
  */
+
 char *_strcpy(char *dest, char *src)
 {
 	int len;
