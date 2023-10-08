@@ -7,6 +7,19 @@
 #include <string.h>
 
 
+
+typedef struct shellData
+{
+	char **_environ;
+	char **args;
+	char *input;
+	char **commands;
+	int status;
+	
+} shellData;
+
+#define INIT_sd {NULL, NULL, NULL, NULL, 0}
+
 /* string functions [str_func] */
 
 int _strlen(char *string);
@@ -14,26 +27,20 @@ int _strcmp(char *s1, char *s2);
 char * _strdup(char *str);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
+char *_strtok(char *input, char *d);
 
-
-
-/* print functions [print_func] */
-
-int putString(char *string);
 
 
 /* prompt function */
 
-void printPrompt();
-char *getPrompt(size_t *count);
 
 /* execute functions */
 
-void exeCom(char **commands);
+void exeCom(shellData *sd);
 
 
 /* perse function [perse_func] */
 
-char **perseCom(char *input);
+void parseCom(shellData *sd);
 
 #endif /* SHELL_H */

@@ -6,20 +6,11 @@
 
 
 
-int main(int ac, char *argv[])
+int main(int ac, char *argv[]) 
 {
 	(void) ac;
 	(void) argv;
-	char *input;
-	size_t count = 0;
-	char **commands;
+	shellData sd = INIT_sd;  
 
-	while (1)
-	{
-
-		input = getPrompt(&count);
-		commands = perseCom(input);
-		exeCom(commands);
-	}
-
+	shellLoop(&sd);
 }
