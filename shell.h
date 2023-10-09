@@ -44,4 +44,6 @@ void exeCom(shellData *sd);
 
 void parseCom(shellData *sd);
 
+extern char** environ;
+
 #endif /* SHELL_H */
