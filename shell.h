@@ -14,6 +14,7 @@ typedef struct shellData
 	char **args;
 	char *input;
 	char **commands;
+	char *epath;
 	int status;
 	
 } shellData;

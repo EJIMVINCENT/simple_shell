@@ -4,13 +4,14 @@
 
 void shellLoop(shellData *sd)
 {
-	char *buffer = NULL;
+	char *buffer;
 	size_t len;
 	int i;
 	pid_t child;
 
 	while (1)
 	{
+		buffer = NULL;
 		if (isatty(0) == 1)
 			write(STDOUT_FILENO, "($) ", 4);
 
@@ -20,7 +21,9 @@ void shellLoop(shellData *sd)
 			perror("getline");
 			exit(EXIT_FAILURE);
 		}
-		
+
+		if (buffer == NULL)
+			continue;
 		sd->input = buffer;
 		if (_strcmp(buffer, "exit\n") == 0)
 		{
@@ -32,15 +35,21 @@ void shellLoop(shellData *sd)
 
 		parseArgs(sd);
 		check = findPath(sd);
-		
-
-		if (check == 0)
+		if (check == 1)
 		{
 			child = fork();
 			if (child == -1)
+			{
 				free(buffer), perror("fork");
+				continue;
+			}
 
-			if (child )
+			else if (child == 0)
+			{
+				i = execute(shellData);
+				continue;
+			}
+		}
 	}
 
 }
