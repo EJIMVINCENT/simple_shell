@@ -29,7 +29,7 @@ char * _strdup(char *str);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_strtok(char *input, char *d);
-
+int _strncmp(char *s1, char *s2, int len);
 
 
 /* prompt function */
@@ -37,13 +37,16 @@ char *_strtok(char *input, char *d);
 
 /* execute functions */
 
-void exeCom(shellData *sd);
+void execute(shellData *sd);
 
 
 /* perse function [perse_func] */
 
-void parseCom(shellData *sd);
+void parseArgs(shellData *sd);
+int findPath(shellData *sd);
+void shellLoop(shellData *);
 
-extern char** environ;
+
+extern char **environ;
 
 #endif /* SHELL_H */
