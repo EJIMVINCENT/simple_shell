@@ -1,49 +1,41 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <stdlib.h>
+
 #include <stdio.h>
 #include <unistd.h>
-#include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <signal.h>
 
+#define DELIM  " \t\n"
+#define BUFFERSIZE 1024
+
+extern char **environ;
 
 
 typedef struct shellData
 {
-	char **_environ;
-	char **args;
-	char *input;
+	char **argv;
+	char **_environs;
+	char *pid;
+	int count;
+	int stat;
+	char *userInput;
 	char **commands;
-	char *epath;
-	int status;
-	
 } shellData;
 
-#define INIT_sd {NULL, NULL, NULL, NULL, 0}
 
-/* string functions [str_func] */
+/* string function */ 
 
-int _strlen(char *string);
-int _strcmp(char *s1, char *s2);
-char * _strdup(char *str);
-char *_strcat(char *dest, char *src);
+char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
-char *_strtok(char *input, char *d);
+int _strcmp(char *s1, char *s2);
+char *_strchr(char *s, char c);
+int _strspn(char *s, char *accept);
 
-
-
-/* prompt function */
-
-
-/* execute functions */
-
-void exeCom(shellData *sd);
-
-
-/* perse function [perse_func] */
-
-void parseCom(shellData *sd);
-
-extern char** environ;
-
-#endif /* SHELL_H */
+#endif
