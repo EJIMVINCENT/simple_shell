@@ -29,7 +29,7 @@ void shellLoop(shellData *shellD)
 				continue;
 			}
 
-			input = rep_var 
+			status = parseCommands(input, shellD);
 
 			
 		}

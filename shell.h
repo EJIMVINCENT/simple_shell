@@ -12,7 +12,9 @@
 #include <fcntl.h>
 #include <signal.h>
 
-#define DELIM  " \t\n"
+
+#define TOKBUFF 128
+#define DELIM " \t\r\n\a"
 #define BUFFERSIZE 1024
 
 extern char **environ;
@@ -28,6 +30,42 @@ typedef struct shellData
 	char *userInput;
 	char **commands;
 } shellData;
+
+
+
+/**
+ * struct sep - single linked list
+ *
+ * @separator: (; | &)
+ * @next: pointer to next node
+ *
+ * Description: single linked list to store store separators
+ *
+ */
+
+typedef struct sep
+{
+	char separator;
+	struct sep *next;
+} sep;
+
+
+
+/**
+ * struct commands - single linked list
+ *
+ * @command: command line
+ * @next: pointer to  next node
+ *
+ * Description: single linked list to store command line arguments
+ */
+
+typedef struct commands
+{
+	char *command;
+	struct commands *next;
+} commands;
+
 
 
 /* string function */ 
