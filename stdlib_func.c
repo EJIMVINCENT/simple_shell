@@ -74,7 +74,7 @@ char *_itoa(int n)
 	unsigned int temp;
 	int len = intLen(n);
 
-	buffer = malloc(sizeof(char) * ());
+	buffer = malloc(sizeof(char) * len);
 	if (buffer == NULL)
 		return (NULL);
 	*(buffer + len) = '\0';

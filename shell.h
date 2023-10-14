@@ -76,7 +76,7 @@ void setData(shellData *shellD, char **argv);
 
 /* parseCommands_func.c */
 
-int parseCommands(char *input, shellData shellD);
+int parseCommands(char *input, shellData *shellD);
 void addComSep(sep *sepHead, commands *comHead, char *input);
 char **splitCommand(char *input);
 char *charSwap(char *input, int status);
@@ -85,8 +85,8 @@ void findNext(sep *sepH, commands *comH, shellData *shellD);
 
 /* addComSepNode_func.c */
 
-commands addComNode(commands *comHead, char *command);
-sep addSepNode(sep *sepHead, char s);
+commands *addComNode(commands *comHead, char *command);
+sep *addSepNode(sep *sepHead, char s);
 void freeComSepNode(commands **comHead, sep **sepHead);
 
 
@@ -99,7 +99,7 @@ int _env(shellData *shellD);
 
 /* errors_func.c */
 
-char *errorEnv(shellData *datash);
+char *errorEnv(shellData *shellD);
 int getError(shellData *shellD, int value);
 char *errorNotFound(shellData *s);
 char *errorExit(shellData *s);
@@ -168,7 +168,7 @@ char *_strtok(char *string, const char *delim);
 /* syntaxSErrorCheck_func.c */
 
 int syntaxErrorCheck(char *input, shellData *shellD);
-void printSError(shellData shellD, char *input, int b, int x);
+void printSError(shellData *shellD, char *input, int b, int x);
 int countRepeat(char *input, int count);
 int sepErrorCheck(char *input, int index, char prev);
 int findFirst(char *input, int *b);

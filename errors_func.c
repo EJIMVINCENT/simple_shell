@@ -4,7 +4,7 @@
 
 
 
-char *errorEnv(data_shell *datash)
+char *errorEnv(shellData *shellD)
 {
 	int len;
 	char *error;
@@ -23,7 +23,7 @@ char *errorEnv(data_shell *datash)
 		return (NULL);
 	}
 
-	_strcpy(error, shELLd->argv[0]);
+	_strcpy(error, shellD->argv[0]);
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, ": ");
@@ -42,8 +42,8 @@ char *errorPath126(shellData *shellD)
 	char *error;
 
 	ver_str = _itoa(shellD->count);
-	length = _strlen(shellD->argv[0]) + _strlen(ver_str);
-	length += _strlen(shellD->commands[0]) + 24;
+	len = _strlen(shellD->argv[0]) + _strlen(ver_str);
+	len += _strlen(shellD->commands[0]) + 24;
 	error = malloc(sizeof(char) * (len + 1));
 	if (error == 0)
 	{
@@ -51,7 +51,7 @@ char *errorPath126(shellData *shellD)
 		free(ver_str);
 		return (NULL);
 	}
-	_strcpy(error, shelD->argv[0]);
+	_strcpy(error, shellD->argv[0]);
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, ": ");
@@ -128,7 +128,7 @@ char *errorNotFound(shellData *s)
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, ": ");
-	_strcat(error, s->commads[0]);
+	_strcat(error, s->commands[0]);
 	_strcat(error, ": not found\n");
 	_strcat(error, "\0");
 	free(ver_str);
@@ -151,7 +151,7 @@ char *errorExit(shellData *s)
 	char *ver_str;
 
 	ver_str = _itoa(s->count);
-	length = _strlen(datash->argv[0]) + _strlen(ver_str);
+	length = _strlen(s->argv[0]) + _strlen(ver_str);
 	length += _strlen(s->commands[0]) + _strlen(s->commands[1]) + 23;
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)

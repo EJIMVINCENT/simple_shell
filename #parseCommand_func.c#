@@ -2,11 +2,11 @@
 
 
 
-int parseCommands(char *input, shellData shellD)
+int parseCommands(char *input, shellData *shellD)
 {
 	int status = 1;
 	sep *sepHead, *sepTemp;
-	commands *comHead, comTemp;
+	commands *comHead, *comTemp;
 
 	sepHead = NULL;
 	comHead = NULL;

@@ -31,8 +31,7 @@ int _getline(char **input, size_t *n, FILE *inputStream)
 	ssize_t temp;
 	int status;
 	static ssize_t count;
-	ssize_t temp;
-	char character = '\';
+	char character = 'a';
 	char *buffer;
 
 	if (count == 0)
@@ -51,10 +50,15 @@ int _getline(char **input, size_t *n, FILE *inputStream)
 		status = read(STDIN_FILENO, &character, 1);
 		/*check for error and eof*/ 
 		if (status == -1 || (status = 0 && count == 0))
-			free(buffer), return (-1);
-
+		{
+			free(buffer);
+			return (-1);
+		}
 		if (status == 0 && count != 0)
-			count++, break;
+		{
+			count++;
+			break;
+		}
 		if (count >=  BUFFERSIZE)
 			buffer = _realloc(buffer, count, count + 1);
 		buffer[count] = character;
@@ -81,7 +85,10 @@ char *remComment(char *input)
 		if (input[i] == '#')
 		{
 			if (i == 0)
-				free(input), return (NULL);
+			{
+				free(input);
+				return (NULL);
+			}
 			if (input[i - 1] == ' ' || input[i - 1]
 			    == '\t' || input[i - 1] == ';')
 				index = i;

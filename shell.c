@@ -22,9 +22,9 @@ void setData(shellData *shellD, char **argv)
 	shellD->argv = argv;
 	shellD->stat = 0;
 	shellD->counter = 1;
-	shellD->args = NULL;
+	shellD->commands = NULL;
 
-	for (i = 0; environs[i]; i++)
+	for (i = 0; environ[i]; i++)
 		;
 	i++;
 

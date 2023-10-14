@@ -15,13 +15,14 @@ int exeCom(shellData *shellD)
 {
 	pid_t pid, wpid;
 	int status, check;
+	char *path;
 
-	check = checkIfExec(shellD);
+	check = checkExec(shellD);
 	if (check == -1)
 		return (1);
 	if (check == 0)
 	{
-		path = findPath(shellD->commands, shellD->_environ);
+		path = findPath(shellD->commands[0], shellD->_environ);
 		if (checkPermission(path, shellD) == 1)
 			return (1);
 	}
@@ -34,7 +35,7 @@ int exeCom(shellData *shellD)
 			path = findPath(shellD->commands, shellD->_environ);
 		else
 			path = shellD->commands[0];
-		execve(path + check, shellD->commands)
+		execve(path + check, shellD->commands, shellD->_environ);
 	}
 	else if (pid < 0)
 	{
@@ -46,7 +47,7 @@ int exeCom(shellData *shellD)
 		do
 		{
 			wpid = waitpid(pid, &status, WUNTRACED);
-		} WHILE (!WIFSIGNALED(status) && !WIFEXITED(status));
+		} while (!WIFSIGNALED(status) && !WIFEXITED(status));
 	}
 	shellD->stat = status / 256;
 	return (1);
@@ -59,10 +60,10 @@ int exeCom(shellData *shellD)
 int checkExec(shellData *shellD)
 {
 	int i;
-	char *command;
+	char **command;
 	struct stat s;
 
-	command = shellD->commands;
+	command = shellD->commands[0];
 
 	for (i = 0; command[i]; i++)
 	{
@@ -79,7 +80,8 @@ int checkExec(shellData *shellD)
 		{
 			if (command[i + 1] == '.')
 				continue;
-			i++, break;
+			i++;
+			break;
 		}
 		else
 			break;
@@ -140,7 +142,7 @@ char *findPath(char *command, char **_environ)
 	{
 		temp = _strdup(path);
 		comLen = _strlen(command);
-		token = _strtok(ptr_path, ":");
+		token = _strtok(temp, ":");
 		i = 0;
 		while (token != NULL)
 		{
@@ -167,7 +169,7 @@ char *findPath(char *command, char **_environ)
 		return (NULL);
 	}
 	if (command[0] == '/')
-		if (stat(command, &st) == 0)
+		if (stat(command, &s) == 0)
 			return (command);
 	return (NULL);
 }

@@ -23,11 +23,11 @@ char *cdStrcat(shellData *s, char *msg, char *error, char *ver_str)
 	_strcat(error, ": ");
 	_strcat(error, s->commands[0]);
 	_strcat(error, msg);
-	if (datash->args[1][0] == '-')
+	if (s->args[1][0] == '-')
 	{
 		flag = malloc(3);
 		flag[0] = '-';
-		flag[1] = datash->commands[1][1];
+		flag[1] = s->commands[1][1];
 		flag[2] = '\0';
 		_strcat(error, flag);
 		free(flag);
@@ -57,7 +57,7 @@ char *errorCd(shellData *s)
 	char *error, *ver_str, *msg;
 
 	ver_str = _itoa(s->count);
-	if (datash->commands[1][0] == '-')
+	if (s->commands[1][0] == '-')
 	{
 		msg = ": Illegal option ";
 		len_id = 2;
@@ -65,7 +65,7 @@ char *errorCd(shellData *s)
 	else
 	{
 		msg = ": can't cd to ";
-		len_id = _strlen(datash->args[1]);
+		len_id = _strlen(s->args[1]);
 	}
 
 	length = _strlen(s->argv[0]) + _strlen(s->commands[0]);

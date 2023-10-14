@@ -57,7 +57,7 @@ int _env(shellData *shellD)
 		write(STDOUT_FILENO, shellD->_environ[i], j);
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	shellD->status = 0;
+	shellD->stat = 0;
 
 	return (1);
 }

@@ -6,13 +6,16 @@ int stringCmp(char *str, const char *delim)
 {
 	unsigned int i, j, k = 0;
 
-	for (i = 0, str[i]; i++)
+	for (i = 0; str[i]; i++)
 	{
 		j = 0;
 		while (delim[j])
 		{
 			if (str[i] == delim[j])
-				k++, break;
+			{
+				k++;
+				break;
+			}
 			j++;
 		}
 	}
@@ -33,7 +36,7 @@ char *_strtok(char *string, const char *delim)
 	{
 		if (stringCmp(string, delim))
 			return (NULL);
-		temp = str;
+		temp = string;
 		i = _strlen(string);
 		strEnd = &string[i];
 	}

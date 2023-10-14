@@ -46,12 +46,12 @@ char **customRealloc(char **ptr, unsigned int old_size, unsigned int new_size)
 }
 
 
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *ptr, unsigned int oldlen, unsigned int newlen)
 {
 	void *newptr;
 
 	if (ptr == NULL)
-		return (malloc(new_size));
+		return (malloc(newlen));
 
 	if (newlen == 0)
 	{

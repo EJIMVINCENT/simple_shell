@@ -14,7 +14,10 @@
 int checkPermission(char *path,shellData *s)
 {
 	if (path == NULL)
-		getError(s, 127), return (1);
+	{
+		getError(s, 127);
+		return (1);
+	}
 	
 	if (_strcmp(s->commands[0], path) != 0)
 	{

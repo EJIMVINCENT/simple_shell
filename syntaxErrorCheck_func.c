@@ -17,12 +17,16 @@ int syntaxErrorCheck(char *input, shellData *shellD)
 	firstChar = findFirst(input, &begin);
 
 	if (firstChar  == -1)
-		printSError(shellD, input, begin, 0), return (1);
+	{
+		printSError(shellD, input, begin, 0);
+		return (1);
+	}
 
 	i = sepErrorCheck(input + begin, 0, *(input + begin));
 	if (i != 0)
 	{
-		printSError(shellD, input, begin + i, 1), return (1);
+		printSError(shellD, input, begin + i, 1);
+		return (1);
 	}
 	return (0);
 	
@@ -49,10 +53,10 @@ void printSError(shellData shellD, char *input, int b, int x)
 
 	m2 = ": Syntax error: \"";
 	m3 = "\" unexpected\n";
-	count = aux_itoa(datash->counter);
-	len = _strlen(shellD->argv[0]) + _strlen(coun) + _strlen(m1) + _strlen(m2) + _strlen(m3) + 2;
+	count = _itoa(shellD->counter);
+	len = _strlen(shellD->argv[0]) + _strlen(count) + _strlen(m1) + _strlen(m2) + _strlen(m3) + 2;
 
-	error = malloc(sizeof(char) * (length + 1));
+	error = malloc(sizeof(char) * (len + 1));
 	if (error == NULL)
 	{
 		free(count);
@@ -76,7 +80,7 @@ void printSError(shellData shellD, char *input, int b, int x)
 int countRepeat(char *input, int count)
 {
 	if (*(input - 1) == *input)
-		return (repeated_char(input - 1, count + 1));
+		return (countRepeat(input - 1, count + 1));
 
 	return (count);
 }
@@ -99,7 +103,7 @@ int sepErrorCheck(char *input, int index, char prev)
 			return (index);
 		if (prev == '|')
 		{
-			count = countRepeat(input, 0)
+			count = countRepeat(input, 0);
 			if (count == 0 || count > 1)
 				return (index)
 	       	}
@@ -130,7 +134,7 @@ int findFirst(char *input, int *b)
 	{
 		if (input[*b] == ' ' || input[*b] == '\t')
 			continue;
-		if (input[*b] == ';' || input[*i] == '|' || input[*b] == '&')
+		if (input[*b] == ';' || input[*b] == '|' || input[*b] == '&')
 			return (-1);
 		break;
 	}
