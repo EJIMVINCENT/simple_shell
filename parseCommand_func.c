@@ -1,6 +1,14 @@
 #include "shell.h"
 
-
+/**
+ * parseCommands - parses userinput
+ *
+ * @input: pointer to user input
+ * @shellD: pointer to shellData struct
+ *
+ * Return: returns 1 on success and 0 otherwise
+ *
+ */
 
 int parseCommands(char *input, shellData *shellD)
 {
@@ -33,6 +41,14 @@ int parseCommands(char *input, shellData *shellD)
 	return (1);
 }
 
+/**
+ * addComSep - adds calls function to add command to commands
+ * struct and seperators to sep struct
+ *
+ * @sepHead: pointer to sepHead pointer
+ * @comHead: pointer to comHead pointer
+ *
+ */
 
 void addComSep(sep **sepHead, commands **comHead, char *input)
 {
@@ -57,7 +73,16 @@ void addComSep(sep **sepHead, commands **comHead, char *input)
 	} while (temp != NULL);
 }
 
-
+/**
+ * spiltCommand - splits commands and arguments
+ *
+ * @input: input string (commands)
+ *
+ * Return: returns a pointer to an array of strings with
+ * command at index 0 and followed by args to command
+ * otherwise NULL
+ *
+ */
 
 char **splitCommand(char *input)
 {
@@ -95,8 +120,16 @@ char **splitCommand(char *input)
 	return (commands);
 }
 
-
-
+/**
+ * charSwap - swaps command seperators for non
+ * printable char
+ *
+ * @input: input string (command)
+ * @status: shell status
+ *
+ * Return: returns input
+ *
+ */
 
 char *charSwap(char *input, int status)
 {
@@ -133,7 +166,13 @@ char *charSwap(char *input, int status)
 	return (input);
 }
 
-
+/**
+ * findNext - finds next command to execute
+ *
+ * @sepH: pointer to sep struct containing seperators
+ * @comH: pointer to commands struct containing commands
+ *
+ */ 
 
 void findNext(sep *sepH, commands *comH, shellData *shellD)
 {

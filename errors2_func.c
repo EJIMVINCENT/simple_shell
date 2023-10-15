@@ -11,6 +11,7 @@
  * @ver_str: counter lines
  *
  * Return: error message
+ *
  */
 
 char *cdStrcat(shellData *s, char *msg, char *error, char *ver_str)

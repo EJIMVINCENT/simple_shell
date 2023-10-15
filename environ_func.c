@@ -1,9 +1,18 @@
 #include "shell.h"
 
-
-
-
-
+/**
+ * EnvCmp - checks if first characters in name are
+ * same with 1st char in envname
+ *
+ * description: _getenv helper function
+ *
+ * @envName: name of the env
+ * @name: name of path to check
+ *
+ * Return: lenght of the path name if found
+ * otherwise 0;
+ *
+ */
 
 int EnvCmp(const char *envName, const char *name)
 {
@@ -20,7 +29,17 @@ int EnvCmp(const char *envName, const char *name)
 	return (i + 1);
 }
 
-
+/**
+ * _getenv - custom getenv (get the values of an enviromental
+ * variable)
+ *
+ * @name: Name of env to be searched
+ * @_environ: pointer to environmental variables list
+ *
+ * Return: return the enviromental variable if found
+ * otherwise NULL
+ *
+ */
 
 char *_getenv(const char *name, char **_environ)
 {
@@ -43,6 +62,16 @@ char *_getenv(const char *name, char **_environ)
 	return (ptr);
 }
 
+/**
+ * _env - custom env command
+ *
+ * description: prints the values of the env to stdout
+ *
+ * @shellD: pointer to shellData structure
+ *
+ * Return: Always returns 1
+ *
+ */
 
 int _env(shellData *shellD)
 {

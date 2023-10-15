@@ -1,8 +1,14 @@
 #include "shell.h"
 
-
-
-
+/**
+ * errorEnv - error message for env add/rem
+ * operation failure
+ * 
+ * @shellD: pointer to shellData struct
+ *
+ * Return: return error message, otherwise NULL
+ *
+ */
 
 char *errorEnv(shellData *shellD)
 {
@@ -35,6 +41,15 @@ char *errorEnv(shellData *shellD)
 	return (error);
 }
 
+/**
+ * errorPath126 - prints error message for file perm
+ *
+ * @shellD: pointer to shellData struct
+ *
+ *  Return: return error message, otherwise NULL
+ *
+ */
+
 char *errorPath126(shellData *shellD)
 {
 	int len;
@@ -62,6 +77,15 @@ char *errorPath126(shellData *shellD)
 	return (error);
 }
 
+/**
+ * getError - gets and writes error to stdout
+ *
+ * @shellD: pointer to shellData struct
+ * value: error value
+ *
+ * Return: value(error value)
+ *
+ */
 
 int getError(shellData *shellD, int value)
 {
@@ -96,16 +120,13 @@ int getError(shellData *shellD, int value)
 	return (value);
 }
 
-
-
-
-
 /**
  * errorNotFound - error message for command not found
  *
- * @s: data relevant pointer to shellData struct
+ * @s: pointer to shellData struct
  *
  * Return: Error message
+ *
  */
 
 char *errorNotFound(shellData *s)
