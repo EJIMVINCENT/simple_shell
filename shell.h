@@ -19,6 +19,20 @@
 
 extern char **environ;
 
+/**
+ * struct shellData - custome shell main structure
+ *
+ * @argv: pointer command line arguments
+ * @_environ: pointer to array of environmental
+ * variables
+ * @pid: pointer to current proccess id
+ * @count: variable to count execution
+ * @stat: store execution exit status
+ * @input: pointer to user input commands
+ * @commands: pointer to an array containing commands
+ * and args to be executed
+ *
+ */
 
 typedef struct shellData
 {
@@ -75,7 +89,6 @@ void setData(shellData *shellD, char **argv);
 
 
 /* parseCommands_func.c */
-
 int parseCommands(char *input, shellData *shellD);
 void addComSep(sep **sepHead, commands **comHead, char *input);
 char **splitCommand(char *input);
@@ -84,21 +97,18 @@ void findNext(sep *sepH, commands *comH, shellData *shellD);
 
 
 /* addComSepNode_func.c */
-
 commands *addComNode(commands **comHead, char *command);
 sep *addSepNode(sep **sepHead, char s);
 void freeComSepNode(commands **comHead, sep **sepHead);
 
 
 /* environ_func.c*/
-
 int EnvCmp(const char *envName, const char *name);
 char *_getenv(const char *name, char **_environ);
 int _env(shellData *shellD);
 
 
 /* errors_func.c */
-
 char *errorEnv(shellData *shellD);
 int getError(shellData *shellD, int value);
 char *errorNotFound(shellData *s);
@@ -121,7 +131,7 @@ char *findPath(char *command, char **_environ);
 
 
 /* executeCommand2_func.c */
-int checkPermission(char *path,shellData *s);
+int checkPermission(char *path, shellData *s);
 
 
 
@@ -137,20 +147,17 @@ char *readLine(int *check);
 int _getline(char **input, size_t *n, FILE *inputStream);
 char *remComment(char *input);
 
-
 /* shellFunction.c */
 void shellLoop(shellData *shellD);
 
 
 /* stdlib_func.c */
-
 int intLen(int n);
 char *_itoa(int n);
 int _atoi(char *);
 
 
-/* string2_function */ 
-
+/* string2_function */
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
@@ -159,18 +166,16 @@ int _strspn(char *s, char *accept);
 
 
 /* string_func.c */
-
 char *_strdup(const char *str);
 int _strlen(const char *str);
 int stringCmp(char *str, const char *delim);
 char *_strtok(char *string, const char *delim);
 
 /* syntaxSErrorCheck_func.c */
-
 int syntaxErrorCheck(char *input, shellData *shellD);
 void printSError(shellData *shellD, char *input, int b, int x);
 int countRepeat(char *input, int count);
 int sepErrorCheck(char *input, int index, char prev);
 int findFirst(char *input, int *b);
 
-#endif
+#endif /* shell.h */
