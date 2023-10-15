@@ -178,4 +178,7 @@ int countRepeat(char *input, int count);
 int sepErrorCheck(char *input, int index, char prev);
 int findFirst(char *input, int *b);
 
+/* freeEnviron_func.c */
+void freeEnviron(shellData *s);
+
 #endif /* shell.h */
