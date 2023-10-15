@@ -117,7 +117,7 @@ int checkExec(shellData *shellD)
 
 
 /**
- * is_cdir - checks ":" if is in the current directory.
+ * isCdir - checks ":" if is in the current directory.
  *
  * @path: type char pointer char.
  * @i: type int pointer of index.

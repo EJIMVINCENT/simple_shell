@@ -42,15 +42,12 @@ int _getline(char **input, size_t *n, FILE *inputStream)
 
 	if (count == 0)
 		fflush(inputStream);
-
 	else
 		return (-1);
 	count = 0;
-
 	buffer = malloc(sizeof(char) * BUFFERSIZE);
 	if (buffer == NULL)
 		return (-1);
-
 	while (character != '\n')
 	{
 		status = read(STDIN_FILENO, &character, 1);
@@ -70,10 +67,7 @@ int _getline(char **input, size_t *n, FILE *inputStream)
 		buffer[count] = character;
 		count++;
 	}
-
-	buffer[count] = '\0';
-	*input = buffer;
-	*n = count;
+	buffer[count] = '\0', *input = buffer, *n = count;
 	temp = count;
 	if (status != 0)
 		count = 0;

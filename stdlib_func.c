@@ -1,7 +1,13 @@
 #include "shell.h"
 
-
-
+/**
+ * intLen: finds the lenght of an int
+ *
+ * @n: int to be len checked
+ *
+ * Returns: lenght of input int
+ *
+ */
 
 int intLen(int n)
 {
@@ -66,7 +72,14 @@ int _atoi(char *s)
 	return (oi * pn);
 }
 
-
+/**
+ * _itoa - converts int to string
+ *
+ * @n: int to be converted to string
+ *
+ * Return: returns n as a string
+ *
+ */
 
 char *_itoa(int n)
 {

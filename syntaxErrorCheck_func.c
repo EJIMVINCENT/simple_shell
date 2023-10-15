@@ -1,14 +1,16 @@
 #include "shell.h"
 
-
-
-
-
-
-
-
-
-
+/**
+ * syntaxErrorCheck - calls functions to check syntax error and print
+ * approprate error message if found
+ *
+ * @input: input command
+ *
+ * @shellD: pointer to shellData struct
+ *
+ * Return: returns 1 if error is found and 0 otherwise
+ *
+ */
 
 int syntaxErrorCheck(char *input, shellData *shellD)
 {
@@ -31,6 +33,15 @@ int syntaxErrorCheck(char *input, shellData *shellD)
 	return (0);
 }
 
+/**
+ * printSError - checks and prints syntax error to stdout
+ *
+ * @shellD: pointer to shellData struct
+ * @input: input command
+ * @b: point where error was found
+ * @i: variable to differentiate different calls
+ *
+ */
 
 void printSError(shellData *shellD, char *input, int b, int x)
 {
@@ -74,7 +85,15 @@ void printSError(shellData *shellD, char *input, int b, int x)
 	free(count);
 }
 
-
+/**
+ * countRepeat - counts number of time a character has been repeated
+ *
+ * @input: input command
+ * @count: repeat count
+ *
+ * Return: count (0 if no repeat)
+ *
+ */
 
 int countRepeat(char *input, int count)
 {
@@ -84,6 +103,15 @@ int countRepeat(char *input, int count)
 	return (count);
 }
 
+/**
+ * sepErrorcheck - checks for seprators syntax error
+ * @input: input command
+ * @index: variable to store index of error
+ * @prev: variable to store previous stop
+ *
+ * Return: index of error(0 if non is found)
+ *
+ */
 
 int sepErrorCheck(char *input, int index, char prev)
 {
@@ -124,9 +152,16 @@ int sepErrorCheck(char *input, int index, char prev)
 	return (sepErrorCheck(input + 1, index + 1, *input));
 }
 
-
-
-
+/**
+ * finds first character and check if its is
+ * a legal character
+ *
+ * @input: input command
+ * @b: pointer to a int to store the index of firstchar
+ *
+ * Return: 0 on success -1 if error is found
+ *
+ */
 
 int findFirst(char *input, int *b)
 {
