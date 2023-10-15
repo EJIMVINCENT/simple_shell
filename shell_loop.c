@@ -1,6 +1,11 @@
 #include "shell.h"
 
-
+/**
+ * shellLoop - code main loop, reaptedly calls all functions
+ *
+ * shellD: pointer to shellData struct
+ *
+ */
 
 void shellLoop(shellData *shellD)
 {

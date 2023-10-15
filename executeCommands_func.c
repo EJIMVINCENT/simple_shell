@@ -1,15 +1,30 @@
 #include "shell.h"
 
-
+/**
+ * _Find - call functions to execute either
+ * bulitin commands or custome commands
+ *
+ * @shellD: pointer to shellData struct
+ *
+ * Return: status
+ *
+ */
 
 int _Find(shellData *shellD)
 {
 	int status;
 	
-	status =exeCom(shellD);
+	status = exeCom(shellD);
 	return (status);
 }
 
+/**
+ * exeCom - executes builtin commands
+ *
+ * @shellD: pointer to shellData struct
+ *
+ *  Return: returns 1
+ */
 
 int exeCom(shellData *shellD)
 {
@@ -55,7 +70,13 @@ int exeCom(shellData *shellD)
 	
 }
 
-
+/**
+ * checkExec - checks if a command is executable
+ *
+ * @shellD: pointer to shellData struct
+ *
+ * Return: returns 1 if executable and 0 otherwise
+ */
 
 int checkExec(shellData *shellD)
 {

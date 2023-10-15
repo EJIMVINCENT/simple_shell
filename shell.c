@@ -13,6 +13,11 @@ int main (int ac, char *argv[])
 	setData(&shellD, argv);
 	/* code main loop */
 	shellLoop(&shellD);
+
+	freeEnviron(&shellD);
+	if (shellD.stat < 0)
+		return (255);
+	return (shellD.stat);
 }
 
 void setData(shellData *shellD, char **argv)

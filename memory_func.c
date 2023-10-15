@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * _memcpy - copies information from one memory to another
  *
@@ -20,7 +19,16 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size)
 		char_newptr[i] = char_ptr[i];
 }
 
-
+/**
+ * customRealloc - custom function to resize a double pointer
+ *
+ * @ptr: double pointer to be resized
+ * @old_size: old size of the double pointer
+ * @new_size: new size of the double pointer
+ *
+ * Return: return new double pointer of size new_size
+ *
+ */
 
 char **customRealloc(char **ptr, unsigned int old_size, unsigned int new_size)
 {
@@ -45,6 +53,16 @@ char **customRealloc(char **ptr, unsigned int old_size, unsigned int new_size)
 	return (newptr);
 }
 
+/**
+ * _realloc - resizes a pointer variable
+ * 
+ * @ptr: pointer to be resized
+ * @oldlen: old lenght of pointer
+ * newlen: new lenght to be resized to
+ *
+ * Return: new ptr with size newlen
+ *
+ */
 
 void *_realloc(void *ptr, unsigned int oldlen, unsigned int newlen)
 {

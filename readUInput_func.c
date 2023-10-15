@@ -1,9 +1,5 @@
 #include "shell.h"
 
-
-
-
-
 /**
  * read_line - reads the input string.
  *
@@ -23,7 +19,17 @@ char *readLine(int *check)
 	return (input);
 }
 
-
+/**
+ * _getline - custome getline function (reads input from
+ * stdin)
+ *
+ * @input: destination to store characters read
+ * @n: size of characters to read from stdin
+ * @inputStream: inputStream to read from (stdin)
+ *
+ * return: returns the number of character read
+ *
+ */ 
 
 
 int _getline(char **input, size_t *n, FILE *inputStream)
@@ -73,6 +79,15 @@ int _getline(char **input, size_t *n, FILE *inputStream)
 		count = 0;
 	return (temp);
 }
+
+/**
+ * remComment - removes comment from input
+ *
+ * @input: input string
+ *
+ * Return: returns input with comments removed
+ *
+ */
 
 char *remComment(char *input)
 {

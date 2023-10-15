@@ -1,6 +1,15 @@
 #include "shell.h"
 
-
+/**
+ * addSepNode - Adds a node to the end
+ * singley linked list that store com seperators.
+ *
+ * @sepHead: pointer to head of sep singley linked list
+ * @s: seperator to be added
+ *
+ * Return: pointer to sephead 
+ *
+ */
 
 sep *addSepNode(sep **sepHead, char s)
 {
@@ -24,6 +33,18 @@ sep *addSepNode(sep **sepHead, char s)
 	return (*sepHead);
 }
 
+
+/**
+ * addComNode - Adds a node to the end
+ * singley linked list that store commands.
+ *
+ * @comHead: pointer to head of sep singley linked list
+ * @command: seperator to be added
+ *
+ * Return: pointer to comhead 
+ *
+ */
+
 commands *addComNode(commands **comHead, char *command)
 {
 	commands *n, *t;
@@ -46,8 +67,13 @@ commands *addComNode(commands **comHead, char *command)
 	return (*comHead);
 }
 
-
-
+/**
+ * freeComSepNode - frees a singly linked list (sep, commands)
+ *
+ * @comHead: pointer to head of commands linked list
+ * @sepHead: pointer to head of sep linked list
+ *
+ */
 
 void freeComSepNode(commands **comHead, sep **sepHead)
 {
