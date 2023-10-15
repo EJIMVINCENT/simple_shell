@@ -13,8 +13,17 @@
 int _Find(shellData *shellD)
 {
 	int status;
+	int (*bIn)(shellData *s);
 
-	status = exeCom(shellD);
+	if (commands[0] == NULL)
+		return (1);
+
+	bIn = builtin(shellD->commands[0]);
+
+	if (bIn != NULL)	
+		status = bIn(shellD);	
+	else
+		status = exeCom(shellD);
 	return (status);
 }
 
