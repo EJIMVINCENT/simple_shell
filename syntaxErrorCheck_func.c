@@ -39,7 +39,7 @@ int syntaxErrorCheck(char *input, shellData *shellD)
  * @shellD: pointer to shellData struct
  * @input: input command
  * @b: point where error was found
- * @i: variable to differentiate different calls
+ * @x: variable to differentiate different calls
  *
  */
 
@@ -64,7 +64,8 @@ void printSError(shellData *shellD, char *input, int b, int x)
 	m2 = ": Syntax error: \"";
 	m3 = "\" unexpected\n";
 	count = _itoa(shellD->count);
-	len = _strlen(shellD->argv[0]) + _strlen(count) + _strlen(m1) + _strlen(m2) + _strlen(m3) + 2;
+	len = _strlen(shellD->argv[0]) + _strlen(count)
+		+ _strlen(m1) + _strlen(m2) + _strlen(m3) + 2;
 
 	error = malloc(sizeof(char) * (len + 1));
 	if (error == NULL)
@@ -104,7 +105,7 @@ int countRepeat(char *input, int count)
 }
 
 /**
- * sepErrorcheck - checks for seprators syntax error
+ * sepErrorCheck - checks for seprators syntax error
  * @input: input command
  * @index: variable to store index of error
  * @prev: variable to store previous stop
@@ -153,7 +154,7 @@ int sepErrorCheck(char *input, int index, char prev)
 }
 
 /**
- * finds first character and check if its is
+ * findFirst - finds first character and check if its is
  * a legal character
  *
  * @input: input command

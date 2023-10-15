@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * read_line - reads the input string.
+ * readLine - reads the input string.
  *
  * @check: return value of getline function
  *
@@ -27,10 +27,9 @@ char *readLine(int *check)
  * @n: size of characters to read from stdin
  * @inputStream: inputStream to read from (stdin)
  *
- * return: returns the number of character read
+ * Return: returns the number of character read
  *
- */ 
-
+ */
 
 int _getline(char **input, size_t *n, FILE *inputStream)
 {
