@@ -3,7 +3,7 @@
 /**
  * errorEnv - error message for env add/rem
  * operation failure
- * 
+ *
  * @shellD: pointer to shellData struct
  *
  * Return: return error message, otherwise NULL
@@ -81,7 +81,7 @@ char *errorPath126(shellData *shellD)
  * getError - gets and writes error to stdout
  *
  * @shellD: pointer to shellData struct
- * value: error value
+ * @value: error value
  *
  * Return: value(error value)
  *

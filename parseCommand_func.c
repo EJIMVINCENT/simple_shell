@@ -47,7 +47,7 @@ int parseCommands(char *input, shellData *shellD)
  *
  * @sepHead: pointer to sepHead pointer
  * @comHead: pointer to comHead pointer
- *
+ * @input: pointer to char
  */
 
 void addComSep(sep **sepHead, commands **comHead, char *input)
@@ -74,7 +74,7 @@ void addComSep(sep **sepHead, commands **comHead, char *input)
 }
 
 /**
- * spiltCommand - splits commands and arguments
+ * splitCommand - splits commands and arguments
  *
  * @input: input string (commands)
  *
@@ -171,8 +171,8 @@ char *charSwap(char *input, int status)
  *
  * @sepH: pointer to sep struct containing seperators
  * @comH: pointer to commands struct containing commands
- *
- */ 
+ * @shellD: pointer to shellData
+ */
 
 void findNext(sep *sepH, commands *comH, shellData *shellD)
 {
