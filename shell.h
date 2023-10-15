@@ -27,7 +27,7 @@ typedef struct shellData
 	char *pid;
 	int count;
 	int stat;
-	char *userInput;
+	char *input;
 	char **commands;
 } shellData;
 
@@ -77,7 +77,7 @@ void setData(shellData *shellD, char **argv);
 /* parseCommands_func.c */
 
 int parseCommands(char *input, shellData *shellD);
-void addComSep(sep *sepHead, commands *comHead, char *input);
+void addComSep(sep **sepHead, commands **comHead, char *input);
 char **splitCommand(char *input);
 char *charSwap(char *input, int status);
 void findNext(sep *sepH, commands *comH, shellData *shellD);
@@ -85,8 +85,8 @@ void findNext(sep *sepH, commands *comH, shellData *shellD);
 
 /* addComSepNode_func.c */
 
-commands *addComNode(commands *comHead, char *command);
-sep *addSepNode(sep *sepHead, char s);
+commands *addComNode(commands **comHead, char *command);
+sep *addSepNode(sep **sepHead, char s);
 void freeComSepNode(commands **comHead, sep **sepHead);
 
 

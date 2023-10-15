@@ -23,7 +23,7 @@ char *cdStrcat(shellData *s, char *msg, char *error, char *ver_str)
 	_strcat(error, ": ");
 	_strcat(error, s->commands[0]);
 	_strcat(error, msg);
-	if (s->args[1][0] == '-')
+	if (s->commands[1][0] == '-')
 	{
 		flag = malloc(3);
 		flag[0] = '-';
@@ -65,7 +65,7 @@ char *errorCd(shellData *s)
 	else
 	{
 		msg = ": can't cd to ";
-		len_id = _strlen(s->args[1]);
+		len_id = _strlen(s->commands[1]);
 	}
 
 	length = _strlen(s->argv[0]) + _strlen(s->commands[0]);

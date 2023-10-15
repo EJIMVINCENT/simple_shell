@@ -12,7 +12,7 @@
 
 int syntaxErrorCheck(char *input, shellData *shellD)
 {
-	int begin = 0, firstchar = 0, i = 0;
+	int begin = 0, firstChar = 0, i = 0;
 
 	firstChar = findFirst(input, &begin);
 
@@ -33,7 +33,7 @@ int syntaxErrorCheck(char *input, shellData *shellD)
 }
 
 
-void printSError(shellData shellD, char *input, int b, int x)
+void printSError(shellData *shellD, char *input, int b, int x)
 {
 	char *m1, *m2, *m3, *error, *count;
 	int len;
@@ -48,12 +48,12 @@ void printSError(shellData shellD, char *input, int b, int x)
 
 	else if (input[b] == '|')
 		m1 = (input[b + 1] == '|' ? "||" : "|");
-	else if 
+	else
 		m1 = (input[b + 1] == '&' ? "&&" : "&");
 
 	m2 = ": Syntax error: \"";
 	m3 = "\" unexpected\n";
-	count = _itoa(shellD->counter);
+	count = _itoa(shellD->count);
 	len = _strlen(shellD->argv[0]) + _strlen(count) + _strlen(m1) + _strlen(m2) + _strlen(m3) + 2;
 
 	error = malloc(sizeof(char) * (len + 1));
@@ -105,7 +105,7 @@ int sepErrorCheck(char *input, int index, char prev)
 		{
 			count = countRepeat(input, 0);
 			if (count == 0 || count > 1)
-				return (index)
+				return (index);
 	       	}
 	}
 	if (*input == '&')
@@ -130,7 +130,7 @@ int sepErrorCheck(char *input, int index, char prev)
 
 int findFirst(char *input, int *b)
 {
-	for (*b = 0; input[b]; *b += 1)
+	for (*b = 0; input[*b]; *b += 1)
 	{
 		if (input[*b] == ' ' || input[*b] == '\t')
 			continue;

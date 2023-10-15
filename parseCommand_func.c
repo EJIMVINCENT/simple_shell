@@ -2,39 +2,39 @@
 
 
 
-int parseCommands(char *input, shellData shellD)
+int parseCommands(char *input, shellData *shellD)
 {
 	int status = 1;
 	sep *sepHead, *sepTemp;
-	commands *comHead, comTemp;
+	commands *comHead, *comTemp;
 
 	sepHead = NULL;
 	comHead = NULL;
 
-	addComSep(sepHead, comHead, input);
+	addComSep(&sepHead, &comHead, input);
 	sepTemp = sepHead;
 	comTemp = comHead;
 
 	while (comTemp != NULL)
 	{
-		shellD->input = temp->command;
+		shellD->input = comTemp->command;
 		shellD->commands = splitCommand(shellD->input);
-		status = execute(shellD);
+		status = exeCom(shellD);
 		free(shellD->commands);
 		if (status == 0)
 			break;
 		findNext(sepTemp, comTemp, shellD);
 		if (comTemp)
-			comTemp = comTemp->next
+			comTemp = comTemp->next;
 	}
-	freeSepComNode(&sepHead, &comHead);
+	freeComSepNode(&comHead, &sepHead);
 	if (status == 0)
 		return (0);
 	return (1);
 }
 
 
-void addComSep(sep *sepHead, commands *comHead, char *input)
+void addComSep(sep **sepHead, commands **comHead, char *input)
 {
 	int i;
 	char *temp;
@@ -81,15 +81,15 @@ char **splitCommand(char *input)
 		if (i == size)
 		{
 			size += TOKBUFF;
-			commands = customRealloc(token, i, sizeof(char *) * size);
+			commands = customRealloc(commands, i, sizeof(char *) * size);
 			if (commands == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);
 				exit(EXIT_FAILURE);
 			}
-			token = _strtok(NULL, DELIM);
-			commands[i] = token;
 		}
+	        token = _strtok(NULL, DELIM);
+		commands[i] = token;
 	}
 	return (commands);
 }

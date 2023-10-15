@@ -32,7 +32,7 @@ int exeCom(shellData *shellD)
 	if (pid == 0)
 	{
 		if (check == 0)
-			path = findPath(shellD->commands, shellD->_environ);
+			path = findPath(shellD->commands[0], shellD->_environ);
 		else
 			path = shellD->commands[0];
 		execve(path + check, shellD->commands, shellD->_environ);
@@ -60,7 +60,7 @@ int exeCom(shellData *shellD)
 int checkExec(shellData *shellD)
 {
 	int i;
-	char **command;
+	char *command;
 	struct stat s;
 
 	command = shellD->commands[0];

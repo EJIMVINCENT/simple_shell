@@ -2,7 +2,7 @@
 
 
 
-sep *addSepNode(sep *sepHead, char s)
+sep *addSepNode(sep **sepHead, char s)
 {
 	sep *n, *t;
 
@@ -12,19 +12,19 @@ sep *addSepNode(sep *sepHead, char s)
 
 	n->separator = s;
 	n->next =NULL;
-	t = sepHead;
+	t = *sepHead;
 	if (t == NULL)
-		sepHead = n;
+		*sepHead = n;
 	else
 	{
 		while(t->next != NULL)
 			t = t->next;
 		t->next = n;
 	}
-	return (sepHead);
+	return (*sepHead);
 }
 
-commands *addComNode(commands *comHead, char *command)
+commands *addComNode(commands **comHead, char *command)
 {
 	commands *n, *t;
 
@@ -34,16 +34,16 @@ commands *addComNode(commands *comHead, char *command)
 
 	n->command = command;
 	n->next = NULL;
-	t = comHead;
+	t = *comHead;
 	if (!t)
-		comHead = n;
+		*comHead = n;
 	else
 	{
 		while(t->next)
 			t = t->next;
 		t->next = n;
 	}
-	return (comHead);
+	return (*comHead);
 }
 
 

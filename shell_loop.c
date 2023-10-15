@@ -30,8 +30,15 @@ void shellLoop(shellData *shellD)
 			}
 
 			status = parseCommands(input, shellD);
+			shellD->count += 1;
+			free(input);
+		}
 
-			
+		else
+		{
+			status = 0;
+			free(input);
+				
 		}
 	}
 }

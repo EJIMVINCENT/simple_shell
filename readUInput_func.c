@@ -18,7 +18,7 @@ char *readLine(int *check)
 	char *input = NULL;
 	size_t buffsize = 0;
 
-	*check = _getline(&input, &buffsize, stdin);
+	*check = getline(&input, &buffsize, stdin);
 
 	return (input);
 }
