@@ -45,6 +45,16 @@ typedef struct shellData
 	char **commands;
 } shellData;
 
+/**
+ * struct builtin - A new struct type defining builtin commands.
+ * @name: The name of the builtin command.
+ * @f: A function pointer
+ */
+typedef struct builtin
+{
+	char *name;
+	int (*f(char *input))(shellData *s);
+} builtin_t;
 
 
 
