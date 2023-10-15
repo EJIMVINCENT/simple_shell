@@ -5,15 +5,15 @@
 int _Find(shellData *shellD)
 {
 	int status;
-	
-	status =exeCom(shellD);
+
+	status = exeCom(shellD);
 	return (status);
 }
 
 
 int exeCom(shellData *shellD)
 {
-	pid_t pid, wpid;
+	pid_t pid;
 	int status, check;
 	char *path;
 
@@ -44,15 +44,12 @@ int exeCom(shellData *shellD)
 	}
 	else
 	{
-		do
-		{
-			wpid = waitpid(pid, &status, WUNTRACED);
+		do {
+			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFSIGNALED(status) && !WIFEXITED(status));
 	}
 	shellD->stat = status / 256;
 	return (1);
-		
-	
 }
 
 

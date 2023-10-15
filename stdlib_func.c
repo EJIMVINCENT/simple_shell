@@ -20,7 +20,7 @@ int intLen(int n)
 	while (temp > 9)
 	{
 		len++;
-		temp = temp / 10;			
+		temp = temp / 10;
 	}
 
 	return (len);
@@ -78,7 +78,7 @@ char *_itoa(int n)
 	if (buffer == NULL)
 		return (NULL);
 	*(buffer + len) = '\0';
-		
+
 	if (n < 0)
 	{
 		temp = n * -1;

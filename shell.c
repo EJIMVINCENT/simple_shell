@@ -1,20 +1,33 @@
 #include "shell.h"
 
-
-
-
-
-
-int main (int ac, char *argv[])
+/**
+ * main - Entry point
+ * @ac: Argument count
+ * @argv: String of array
+ *
+ * Return: 0
+ */
+int main(int ac, char *argv[])
 {
 	shellData shellD;
+
+	(void)ac;
 
 	/* initialize shellD variables */
 	setData(&shellD, argv);
 	/* code main loop */
 	shellLoop(&shellD);
+	return (0);
 }
 
+
+/**
+ * setData - sets data
+ * @shellD: A pointer
+ * @argv: An array of strings
+ *
+ * Return: void
+ */
 void setData(shellData *shellD, char **argv)
 {
 	unsigned int i;
@@ -35,5 +48,4 @@ void setData(shellData *shellD, char **argv)
 
 	shellD->_environ[i] = NULL;
 	shellD->pid = _itoa(getpid());
-	
 }

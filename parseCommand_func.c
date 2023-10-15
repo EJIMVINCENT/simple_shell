@@ -88,7 +88,8 @@ char **splitCommand(char *input)
 				exit(EXIT_FAILURE);
 			}
 		}
-	        token = _strtok(NULL, DELIM);
+
+		token = _strtok(NULL, DELIM);
 		commands[i] = token;
 	}
 	return (commands);
@@ -103,9 +104,9 @@ char *charSwap(char *input, int status)
 
 	if (status == 0)
 	{
-		for(i = 0; input[i]; i++)
+		for (i = 0; input[i]; i++)
 		{
-			if(input[i] == '|')
+			if (input[i] == '|')
 			{
 				if (input[1 + i] != '|')
 					input[i] =  16;
@@ -121,7 +122,7 @@ char *charSwap(char *input, int status)
 			}
 		}
 	}
-      	else
+	else
 	{
 		for (i = 0; input[i]; i++)
 		{
@@ -151,7 +152,7 @@ void findNext(sep *sepH, commands *comH, shellData *shellD)
 			if (s->separator == '&' || s->separator == ';')
 				status = 0;
 			if (s->separator == '|')
-			       c  = c->next, s = s->next;
+				c  = c->next, s = s->next;
 		}
 		else
 		{

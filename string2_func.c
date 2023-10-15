@@ -1,7 +1,13 @@
 #include "shell.h"
 
 
-
+/**
+ * stringCmp - compares two strings
+ * @str: pointer to a char
+ * @delim: pointer to a char
+ *
+ * Return: 0
+ */
 int stringCmp(char *str, const char *delim)
 {
 	unsigned int i, j, k = 0;
@@ -25,7 +31,13 @@ int stringCmp(char *str, const char *delim)
 }
 
 
-
+/**
+ * _strtok - tokenize a string
+ * @string: pointer to a char
+ * @delim: pointer to a char
+ *
+ * Return: a pointer to the next token or NULL if non
+ */
 char *_strtok(char *string, const char *delim)
 {
 	static char *temp, *strEnd;
@@ -65,4 +77,30 @@ char *_strtok(char *string, const char *delim)
 	if (status == 0)
 		return (NULL);
 	return (strStart);
+}
+
+
+/**
+ * _strcat - concatenate strings
+ * @dest: A pointer to the destination string
+ * @src: A pointer to the source string
+ *
+ * Return: value of dest
+ */
+char *_strcat(char *dest, const char *src)
+{
+	int i;
+	int j;
+
+	for (i = 0; dest[i] != '\0'; i++)
+		;
+
+	for (j = 0; src[j] != '\0'; j++)
+	{
+		dest[i] = src[j];
+		i++;
+	}
+
+	dest[i] = '\0';
+	return (dest);
 }

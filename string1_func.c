@@ -45,7 +45,13 @@ int _strlen(const char *str)
 	return (len);
 }
 
-
+/**
+ * _strspn - calculates the length of initial segment
+ * @s: A pointer to the input string
+ * @accept: A pointer to a string of chars
+ *
+ * Return: value of i
+ */
 int _strspn(char *s, char *accept)
 {
 	int i, j, bool;
@@ -67,7 +73,13 @@ int _strspn(char *s, char *accept)
 	return (i);
 }
 
-
+/**
+ * _strcpy - copies a string
+ * @dest: A pointer to destination char
+ * @src: A pointer to source char
+ *
+ * Return: value of dest
+ */
 char *_strcpy(char *dest, char *src)
 {
 
@@ -80,7 +92,13 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-
+/**
+ * _strcmp - compares two strings
+ * @str1: A pointer to the first string to be compared
+ * @str2: A pointer to the second string to be compared
+ *
+ * Return: 0
+ */
 int _strcmp(char *str1, char *str2)
 {
 	int i;
@@ -93,24 +111,4 @@ int _strcmp(char *str1, char *str2)
 	if (str1[i] < str2[i])
 		return (-1);
 	return (0);
-}
-
-
-
-char *_strcat(char *dest, const char *src)
-{
-	int i;
-	int j;
-
-	for (i = 0; dest[i] != '\0'; i++)
-		;
-
-	for (j = 0; src[j] != '\0'; j++)
-	{
-		dest[i] = src[j];
-		i++;
-	}
-
-	dest[i] = '\0';
-	return (dest);
 }

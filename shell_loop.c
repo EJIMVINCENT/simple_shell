@@ -16,11 +16,10 @@ void shellLoop(shellData *shellD)
 
 		if (check != -1)
 		{
-						
 			input = remComment(input);
 			if (input == NULL)
 				continue;
-			
+
 			i = syntaxErrorCheck(input, shellD);
 			if (i == 1)
 			{
@@ -38,7 +37,6 @@ void shellLoop(shellData *shellD)
 		{
 			status = 0;
 			free(input);
-				
 		}
 	}
 }

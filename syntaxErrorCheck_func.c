@@ -29,7 +29,6 @@ int syntaxErrorCheck(char *input, shellData *shellD)
 		return (1);
 	}
 	return (0);
-	
 }
 
 
@@ -106,8 +105,9 @@ int sepErrorCheck(char *input, int index, char prev)
 			count = countRepeat(input, 0);
 			if (count == 0 || count > 1)
 				return (index);
-	       	}
+		}
 	}
+
 	if (*input == '&')
 	{
 		if (prev  == ';' || prev == '|')

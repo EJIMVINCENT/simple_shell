@@ -41,15 +41,15 @@ int _getline(char **input, size_t *n, FILE *inputStream)
 		return (-1);
 	count = 0;
 
-	buffer = malloc(sizeof(char) * BUFFERSIZE);;
+	buffer = malloc(sizeof(char) * BUFFERSIZE);
 	if (buffer == NULL)
 		return (-1);
 
 	while (character != '\n')
 	{
 		status = read(STDIN_FILENO, &character, 1);
-		/*check for error and eof*/ 
-		if (status == -1 || (status = 0 && count == 0))
+		/*check for error and eof*/
+		if (status == -1 || (status == 0 && count == 0))
 		{
 			free(buffer);
 			return (-1);
@@ -93,7 +93,6 @@ char *remComment(char *input)
 			    == '\t' || input[i - 1] == ';')
 				index = i;
 		}
-		
 	}
 
 	if (index != 0)

@@ -11,13 +11,13 @@ sep *addSepNode(sep **sepHead, char s)
 		return (NULL);
 
 	n->separator = s;
-	n->next =NULL;
+	n->next = NULL;
 	t = *sepHead;
 	if (t == NULL)
 		*sepHead = n;
 	else
 	{
-		while(t->next != NULL)
+		while (t->next != NULL)
 			t = t->next;
 		t->next = n;
 	}
@@ -39,7 +39,7 @@ commands *addComNode(commands **comHead, char *command)
 		*comHead = n;
 	else
 	{
-		while(t->next)
+		while (t->next)
 			t = t->next;
 		t->next = n;
 	}
