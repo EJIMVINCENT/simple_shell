@@ -3,7 +3,7 @@
 /**
  * shellLoop - code main loop, reaptedly calls all functions
  *
- * shellD: pointer to shellData struct
+ * @shellD: pointer to shellData struct
  *
  */
 

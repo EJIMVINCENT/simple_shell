@@ -7,7 +7,7 @@
  * @sepHead: pointer to head of sep singley linked list
  * @s: seperator to be added
  *
- * Return: pointer to sephead 
+ * Return: pointer to sephead
  *
  */
 
@@ -41,7 +41,7 @@ sep *addSepNode(sep **sepHead, char s)
  * @comHead: pointer to head of sep singley linked list
  * @command: seperator to be added
  *
- * Return: pointer to comhead 
+ * Return: pointer to comhead
  *
  */
 

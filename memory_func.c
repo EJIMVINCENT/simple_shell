@@ -55,10 +55,10 @@ char **customRealloc(char **ptr, unsigned int old_size, unsigned int new_size)
 
 /**
  * _realloc - resizes a pointer variable
- * 
+ *
  * @ptr: pointer to be resized
  * @oldlen: old lenght of pointer
- * newlen: new lenght to be resized to
+ * @newlen: new lenght to be resized to
  *
  * Return: new ptr with size newlen
  *
