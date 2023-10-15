@@ -85,7 +85,7 @@ typedef struct commands
 
 /* shell.c */
 void setData(shellData *shellD, char **argv);
-
+void Csignal(int s);
 
 
 /* parseCommands_func.c */
