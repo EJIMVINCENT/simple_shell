@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * intLen: finds the lenght of an int
+ * intLen - finds the lenght of an int
  *
  * @n: int to be len checked
  *
- * Returns: lenght of input int
+ * Return: lenght of input int
  *
  */
 
