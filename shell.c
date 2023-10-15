@@ -70,5 +70,5 @@ void setData(shellData *shellD, char **argv)
 void Csignal(int s)
 {
 	(void)s;
-	write(STDOUT_FILENO, "$ ", 4);
+	write(STDOUT_FILENO, "$ ", 2);
 }
