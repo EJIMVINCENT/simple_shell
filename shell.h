@@ -11,6 +11,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <signal.h>
+#include <limits.h>
 
 
 #define TOKBUFF 128
@@ -47,14 +48,16 @@ typedef struct shellData
 
 /**
  * struct builtin - A new struct type defining builtin commands.
+ *
  * @name: The name of the builtin command.
  * @f: A function pointer
  */
-typedef struct builtin
+
+typedef struct custome
 {
 	char *name;
-	int (*f(char *input))(shellData *s);
-} builtin_t;
+	int (*f)(shellData *s);
+} customeB;
 
 
 
@@ -180,6 +183,7 @@ char *_strdup(const char *str);
 int _strlen(const char *str);
 int stringCmp(char *str, const char *delim);
 char *_strtok(char *string, const char *delim);
+int _isdigit(const char *s);
 
 /* syntaxSErrorCheck_func.c */
 int syntaxErrorCheck(char *input, shellData *shellD);
@@ -190,5 +194,9 @@ int findFirst(char *input, int *b);
 
 /* freeEnviron_func.c */
 void freeEnviron(shellData *s);
+
+/* builtincoms_func.c */
+int (*findBuiltIn(char *input))(shellData *s);
+int exitShell(shellData *shellD);
 
 #endif /* shell.h */

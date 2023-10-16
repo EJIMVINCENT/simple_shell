@@ -82,11 +82,14 @@ char *_strtok(char *string, const char *delim)
 
 /**
  * _strcat - concatenate strings
+ *
  * @dest: A pointer to the destination string
  * @src: A pointer to the source string
  *
  * Return: value of dest
+ *
  */
+
 char *_strcat(char *dest, const char *src)
 {
 	int i;
@@ -103,4 +106,26 @@ char *_strcat(char *dest, const char *src)
 
 	dest[i] = '\0';
 	return (dest);
+}
+
+
+/**
+ * _isdigit - checks if input string contains only digits
+ *
+ * @s: input string
+ *
+ * Return: 1 if string contans only digits, 0 otherwise.
+ *
+ */
+
+int _isdigit(const char *s)
+{
+	unsigned int i;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] < 48 || s[i] > 57)
+			return (0);
+	}
+	return (1);
 }

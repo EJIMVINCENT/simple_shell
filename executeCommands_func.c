@@ -15,10 +15,10 @@ int _Find(shellData *shellD)
 	int status;
 	int (*bIn)(shellData *s);
 
-	if (commands[0] == NULL)
+	if (shellD->commands[0] == NULL)
 		return (1);
 
-	bIn = builtin(shellD->commands[0]);
+	bIn = findBuiltIn(shellD->commands[0]);
 
 	if (bIn != NULL)	
 		status = bIn(shellD);	
