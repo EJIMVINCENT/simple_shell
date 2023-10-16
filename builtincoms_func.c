@@ -26,6 +26,7 @@ int (*findBuiltIn(char *input))(shellData *s)
 			break;
 		return (fb[i].f);
 	}
+	return (NULL);
 
 }
 
