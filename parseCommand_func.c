@@ -27,7 +27,7 @@ int parseCommands(char *input, shellData *shellD)
 	{
 		shellD->input = comTemp->command;
 		shellD->commands = splitCommand(shellD->input);
-		status = exeCom(shellD);
+		status = _Find(shellD);
 		free(shellD->commands);
 		if (status == 0)
 			break;

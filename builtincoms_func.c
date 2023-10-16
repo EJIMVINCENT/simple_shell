@@ -24,9 +24,13 @@ int (*findBuiltIn(char *input))(shellData *s)
 	{
 		if (_strcmp(fb[i].name, input) == 0)
 			break;
-		return (fb[i].f);
 	}
+<<<<<<< HEAD
 	return (NULL);
+=======
+	return (fb[i].f);
+
+>>>>>>> 8234fc31c06e5eb8f72f8d78fd850777ccd0c6e2
 
 }
 
