@@ -24,8 +24,9 @@ int (*findBuiltIn(char *input))(shellData *s)
 	{
 		if (_strcmp(fb[i].name, input) == 0)
 			break;
-		return (fb[i].f);
 	}
+	return (fb[i].f);
+
 
 }
 
