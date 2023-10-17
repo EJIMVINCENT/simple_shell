@@ -35,7 +35,8 @@ int parseCommands(char *input, shellData *shellD)
 		if (comTemp)
 			comTemp = comTemp->next;
 	}
-	freeComSepNode(&comHead, &sepHead);
+	freeComNode(&comHead);
+	freeSepNode(&sepHead);
 	if (status == 0)
 		return (0);
 	return (1);

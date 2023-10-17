@@ -70,21 +70,18 @@ commands *addComNode(commands **comHead, char *command)
 /**
  * freeComSepNode - frees a singly linked list (sep, commands)
  *
- * @comHead: pointer to head of commands linked list
- * @sepHead: pointer to head of sep linked list
+ * @head: pointer to head of commands linked list
  *
  */
 
-void freeComSepNode(commands **comHead, sep **sepHead)
+void freeComNode(commands **head)
 {
 	commands *temp;
 	commands *current;
-	sep *temp1;
-	sep *current1;
 
-	if (comHead != NULL)
+	if (head != NULL)
 	{
-		current = *comHead;
+		current = *head;
 		temp = current;
 		while (current != NULL)
 		{
@@ -92,19 +89,32 @@ void freeComSepNode(commands **comHead, sep **sepHead)
 			free(temp);
 			temp = current;
 		}
-		*comHead = NULL;
+		*head = NULL;
 	}
-	if (sepHead != NULL)
-	{
-		current1 = *sepHead;
-		temp1 = current1;
-		while (current1 != NULL)
-		{
-			current1 = current1->next;
-			free(temp1);
-			temp1 = current1;
-		}
-		*sepHead = NULL;
-	}
+}
 
+/**
+ * freeSepNode - frees a singly linked list (sep)
+ *
+ * @head: pointer to head of sep linked list
+ *
+ */
+
+void freeSepNode(sep **head)
+{
+	sep *temp;
+	sep *current;
+
+	if (head != NULL)
+	{
+		current = *head;
+		temp = current;
+		while (current != NULL)
+		{
+			current = current->next;
+			free(temp);
+			temp = current;
+		}
+		*head = NULL;
+	}
 }

@@ -25,6 +25,7 @@ void shellLoop(shellData *shellD)
 			if (input == NULL)
 				continue;
 
+
 			i = syntaxErrorCheck(input, shellD);
 			if (i == 1)
 			{
@@ -33,6 +34,7 @@ void shellLoop(shellData *shellD)
 				continue;
 			}
 
+			input = varExpansion(input, shellD);
 			status = parseCommands(input, shellD);
 			shellD->count += 1;
 			free(input);
