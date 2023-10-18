@@ -1,1 +1,1 @@
-This is an ALX Simple Shell Project. The Authors are?
+This is an ALX Simple Shell Project. The Authors are Vincent and Erick
