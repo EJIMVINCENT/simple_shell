@@ -15,6 +15,8 @@ int (*findBuiltIn(char *input))(shellData *)
 	customeB fb[] = {
 		{"exit", exitShell},
 		{"env", _env},
+		{"setenv", _setEnv },
+		{"unsetenv", _unsetEnv},
 		{NULL, NULL}
 	};
 
