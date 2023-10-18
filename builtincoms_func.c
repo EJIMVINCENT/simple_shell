@@ -10,7 +10,7 @@
  *
  */
 
-int (*findBuiltIn(char *input))(shellData *s)
+int (*findBuiltIn(char *input))(shellData *)
 {
 	customeB fb[] = {
 		{"exit", exitShell},
@@ -74,7 +74,7 @@ int _setEnv(shellData *s)
 		return (1);
 	}
 
-	envSetUp(s->[1], s->[2], s);
+	envSetUp(s->commands[1], s->commands[2], s);
 }
 
 /**
@@ -112,9 +112,11 @@ void envSetUp(char *name, char *value, shellData *s)
 
 /**
  * _unsetEnv - unsets environment variable
+ *
  * @s: pointer to shellData
  *
  * Return: 1 for success
+ *
  */
 
 int _unsetEnv(shellData *s)
@@ -125,20 +127,20 @@ int _unsetEnv(shellData *s)
 
 	if (s->commands[1] == NULL)
 	{
-		getError(datash, -1);
+		getError(s, -1);
 		return (1);
 	}
 	for (i = 0; s->_environ[i]; i++)
 	{
-		tempEnv = _strdup(datash->_environ[i]);
+		tempEnv = _strdup(s->_environ[i]);
 		envName = _strtok(tempEnv, "=");
-		if (_strcmp(envname, s->commands[1]) == 0)
+		if (_strcmp(envName, s->commands[1]) == 0)
 			k = i;
 		free(tempEnv);
 	}
 	if (k == -2)
 	{
-		getError(datash, -1);
+		getError(s, -1);
 		return (1);
 	}
 	newEnviron = malloc(sizeof(char *) * (i));

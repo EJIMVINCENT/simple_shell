@@ -39,7 +39,7 @@ char **customRealloc(char **p, unsigned int oldlen, unsigned int newlen)
 		return (malloc(sizeof(char *) * newlen));
 
 	if (newlen == oldlen)
-		return (ptr);
+		return (p);
 
 	new = malloc(sizeof(char *) * newlen);
 	if (new == NULL)

@@ -239,4 +239,8 @@ int _setEnv(shellData *s);
 void envSetUp(char *name, char *value, shellData *s);
 int _unsetEnv(shellData *s);
 
+/* builtincoms2_func.c */
+char *setInfo(char *name, char *value);
+
+
 #endif /* shell.h */
