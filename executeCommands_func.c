@@ -41,7 +41,7 @@ int exeCom(shellData *shellD)
 	int status, check;
 	char *path;
 
-	check = checkExec(shellD);
+	check = 0; /*checkExec(shellD);*/
 	if (check == -1)
 		return (1);
 	if (check == 0)

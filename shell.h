@@ -1,24 +1,27 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+extern char **environ;
 
-#include <stdio.h>
+
 #include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <limits.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+
 
 
 #define TOKBUFF 128
 #define DELIM " \t\r\n\a"
 #define BUFFERSIZE 1024
 
-extern char **environ;
+
 
 /**
  * struct shellData - custome shell main structure
@@ -45,6 +48,29 @@ typedef struct shellData
 	char *input;
 	char **commands;
 } shellData;
+
+
+/**
+ * struct replaceVar - linked list used to store
+ * value for variable replacement.
+ *
+ * repLen: length of the value
+ * varLen: length of the variable
+ * next: pointer to next node
+ *
+ */
+
+typedef struct replaceVar
+{
+	int repLen;
+	int varLen;
+	char *replace;
+	struct replaceVar *next;
+	
+} repVar;
+
+
+
 
 /**
  * struct builtin - A new struct type defining builtin commands.
@@ -112,7 +138,19 @@ void findNext(sep *sepH, commands *comH, shellData *shellD);
 /* addComSepNode_func.c */
 commands *addComNode(commands **comHead, char *command);
 sep *addSepNode(sep **sepHead, char s);
-void freeComSepNode(commands **comHead, sep **sepHead);
+void freeComNode(commands **head);
+void freeSepNode(sep **head);
+
+/* addRepVarNode_func.c */
+repVar *addRepVarNode(repVar **head, int varLen, char *value, int repLen);
+void freeRepVarNode(repVar **head);
+
+/* varExpansion_func.c */
+char *replaceVar(repVar **h, char *input, char *result, int len);
+char *varExpansion(char *input, shellData *s);
+int  varCheck(repVar **head, char *input, char *stat, shellData *s);
+void envRepCheck(repVar **head, char *input, shellData *s);
+
 
 
 /* environ_func.c*/
