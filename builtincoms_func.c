@@ -4,7 +4,7 @@
  * findBuiltIn - checks if command is a built in function
  *
  * @input: user input to be checked
- * @s: pointer to shellData struct
+ *
  *
  * Return: built in function if found
  *
@@ -59,9 +59,14 @@ int exitShell(shellData *shellD)
 	return (0);
 }
 
+/**
+ * _setEnv - sets up environment variables
+ * @s: pointer to shellData struct
+ *
+ * Return: 1 for success
+ */
 
-
-int _setEnv(shellData s)
+int _setEnv(shellData *s)
 {
 	if (s->commands[1] == NULL || s->commands[2] == NULL)
 	{
@@ -72,8 +77,14 @@ int _setEnv(shellData s)
 	envSetUp(s->[1], s->[2], s);
 }
 
-
-
+/**
+ * envSetUp - sets up environ
+ * @name: name pointer
+ * @value: value pointer
+ * @s: pointer to shellData
+ *
+ * Return: void
+ */
 
 void envSetUp(char *name, char *value, shellData *s)
 {
@@ -99,12 +110,12 @@ void envSetUp(char *name, char *value, shellData *s)
 	s->_environ[i + 1] = NULL;
 }
 
-
-
-
-
-
-
+/**
+ * _unsetEnv - unsets environment variable
+ * @s: pointer to shellData
+ *
+ * Return: 1 for success
+ */
 
 int _unsetEnv(shellData *s)
 {

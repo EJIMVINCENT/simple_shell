@@ -1,6 +1,14 @@
 #include "shell.h"
 
-
+/**
+ * replaceVar - replaces variable
+ * @h: pointer to a pointer
+ * @input: A pointer
+ * @result: A pointer
+ * @len: integer
+ *
+ * Return: result
+ */
 char *replaceVar(repVar **h, char *input, char *result, int len)
 {
 	repVar *temp;
@@ -41,9 +49,13 @@ char *replaceVar(repVar **h, char *input, char *result, int len)
 }
 
 
-
-
-
+/**
+ * varExpansion - Expands variable
+ * @input: char pointer
+ * @s: pointer to shellData
+ *
+ * Return: result
+ */
 char *varExpansion(char *input, shellData *s)
 {
 	repVar *head = NULL, *temp;
@@ -83,8 +95,15 @@ char *varExpansion(char *input, shellData *s)
 }
 
 
-
-
+/**
+ * varCheck - checks variable
+ * @head: pointer to pointer
+ * @input: char pointer
+ * @stat: char pointer
+ * @s: pointer to shellData
+ *
+ * Return: i for success
+ */
 int  varCheck(repVar **head, char *input, char *stat, shellData *s)
 {
 	int i = 0, statlen, pidlen;
@@ -125,7 +144,14 @@ int  varCheck(repVar **head, char *input, char *stat, shellData *s)
 	return (i);
 }
 
-
+/**
+ * envRepCheck - ....
+ * @head: pointer to a pointer
+ * @input: char pointer
+ * @s: pointer to shellData
+ *
+ * Return: void
+ */
 void envRepCheck(repVar **head, char *input, shellData *s)
 {
 	int i, j, k, varlen;

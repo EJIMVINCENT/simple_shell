@@ -54,10 +54,10 @@ typedef struct shellData
  * struct replaceVar - linked list used to store
  * value for variable replacement.
  *
- * repLen: length of the value
- * varLen: length of the variable
- * next: pointer to next node
- *
+ * @repLen: length of the value
+ * @varLen: length of the variable
+ * @next: pointer to next node
+ * @replace: char pointer
  */
 
 typedef struct replaceVar
@@ -78,7 +78,7 @@ typedef struct replaceVar
  * @f: A function pointer
  */
 
-typedef struct custome
+typedef struct builtin
 {
 	char *name;
 	int (*f)(shellData *s);
@@ -235,5 +235,8 @@ void freeEnviron(shellData *s);
 /* builtincoms_func.c */
 int (*findBuiltIn(char *input))(shellData *s);
 int exitShell(shellData *shellD);
+int _setEnv(shellData *s);
+void envSetUp(char *name, char *value, shellData *s);
+int _unsetEnv(shellData *s);
 
 #endif /* shell.h */
