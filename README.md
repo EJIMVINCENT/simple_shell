@@ -4,3 +4,8 @@ Here are the functions created for the project:\n
 2. _strcpy;
 3. _strdup;
 4. _strspn;
+5. _strcmp;
+6. stringCmp;
+7. _strtok;
+8. _strcat - concatenate strings;
+9. _isdigit - checks if input string contains only digits;
