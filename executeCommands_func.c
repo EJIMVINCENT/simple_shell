@@ -20,8 +20,8 @@ int _Find(shellData *shellD)
 
 	bIn = findBuiltIn(shellD->commands[0]);
 
-	if (bIn != NULL)	
-		status = bIn(shellD);	
+	if (bIn != NULL)
+		status = bIn(shellD);
 	else
 		status = exeCom(shellD);
 	return (status);

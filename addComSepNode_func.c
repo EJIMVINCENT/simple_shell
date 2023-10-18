@@ -68,7 +68,7 @@ commands *addComNode(commands **comHead, char *command)
 }
 
 /**
- * freeComSepNode - frees a singly linked list (sep, commands)
+ * freeComNode - frees a singly linked list (sep, commands)
  *
  * @head: pointer to head of commands linked list
  *

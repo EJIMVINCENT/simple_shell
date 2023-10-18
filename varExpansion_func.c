@@ -48,7 +48,7 @@ char *varExpansion(char *input, shellData *s)
 {
 	repVar *head = NULL, *temp;
 	char *status, *result;
-	int lenV, len = 0;;
+	int lenV, len = 0;
 
 	status = _itoa(s->stat);
 
@@ -65,7 +65,7 @@ char *varExpansion(char *input, shellData *s)
 	while (temp)
 	{
 		len += (temp->repLen - temp->varLen);
-		temp = temp->next;			
+		temp = temp->next;
 	}
 
 	len += lenV;
@@ -90,10 +90,9 @@ int  varCheck(repVar **head, char *input, char *stat, shellData *s)
 	int i = 0, statlen, pidlen;
 	char *vpid;
 
-	vpid = s->pid; 
+	vpid = s->pid;
 	statlen = _strlen(stat);
 	pidlen = _strlen(vpid);
-	
 
 	for (; input[i]; i++)
 	{
@@ -120,7 +119,7 @@ int  varCheck(repVar **head, char *input, char *stat, shellData *s)
 			else if (input[i + 1] == ';')
 				addRepVarNode(head, 0, NULL, 0);
 			else
-				envRepCheck(head, input + i, s);			
+				envRepCheck(head, input + i, s);
 		}
 	}
 	return (i);
@@ -154,7 +153,10 @@ void envRepCheck(repVar **head, char *input, shellData *s)
 
 	for (i = 0; input[i]; i++)
 	{
-		if (input[i] == ' ' || input[i] == '\t' || input[i] == ';' || input[i] == '\n')
+		if (input[i] == ' ' ||
+		    input[i] == '\t' ||
+		    input[i] == ';' ||
+		    input[i] == '\n')
 			break;
 	}
 

@@ -61,7 +61,7 @@ void setData(shellData *shellD, char **argv)
 
 
 /**
- * get_sigint - Handle the crtl + c call in prompt
+ * Csignal - Handle the crtl + c call in prompt
  *
  * @s: Signal handler
  *

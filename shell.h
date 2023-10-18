@@ -66,7 +66,6 @@ typedef struct replaceVar
 	int varLen;
 	char *replace;
 	struct replaceVar *next;
-	
 } repVar;
 
 

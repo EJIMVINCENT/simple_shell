@@ -8,7 +8,7 @@
  *
  * @head: pointer to head of repVar linked list.
  * @varLen: length of the variable.
- * @valuen: value of the replacement.
+ * @value: value of the replacement.
  * @repLen: length of the replacement.
  *
  * Return: address of head.
