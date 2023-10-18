@@ -46,7 +46,7 @@ char **customRealloc(char **p, unsigned int oldlen, unsigned int newlen)
 		return (NULL);
 
 	while (i < oldlen)
-		new[i] = p[i++];
+		new[i] = p[i], i++;
 
 	free(p);
 

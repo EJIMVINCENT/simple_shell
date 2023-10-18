@@ -77,6 +77,7 @@ int _setEnv(shellData *s)
 	}
 
 	envSetUp(s->commands[1], s->commands[2], s);
+	return (1);
 }
 
 /**
