@@ -22,35 +22,35 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size)
 /**
  * customRealloc - custom function to resize a double pointer
  *
- * @ptr: double pointer to be resized
- * @old_size: old size of the double pointer
- * @new_size: new size of the double pointer
+ * @p: double pointer to be resized
+ * @oldlen: old size of the double pointer
+ * @newlen: new size of the double pointer
  *
  * Return: return new double pointer of size new_size
  *
  */
 
-char **customRealloc(char **ptr, unsigned int old_size, unsigned int new_size)
+char **customRealloc(char **p, unsigned int oldlen, unsigned int newlen)
 {
-	char **newptr;
-	unsigned int i;
+	char **new;
+	unsigned int i = 0;
 
-	if (ptr == NULL)
-		return (malloc(sizeof(char *) * new_size));
+	if (p == NULL)
+		return (malloc(sizeof(char *) * newlen));
 
-	if (new_size == old_size)
+	if (newlen == oldlen)
 		return (ptr);
 
-	newptr = malloc(sizeof(char *) * new_size);
-	if (newptr == NULL)
+	new = malloc(sizeof(char *) * newlen);
+	if (new == NULL)
 		return (NULL);
 
-	for (i = 0; i < old_size; i++)
-		newptr[i] = ptr[i];
+	while (i < oldlen)
+		new[i] = p[i++];
 
-	free(ptr);
+	free(p);
 
-	return (newptr);
+	return (new);
 }
 
 /**
