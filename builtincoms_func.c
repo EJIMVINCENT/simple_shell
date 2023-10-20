@@ -17,6 +17,7 @@ int (*findBuiltIn(char *input))(shellData *)
 		{"env", _env},
 		{"setenv", _setEnv },
 		{"unsetenv", _unsetEnv},
+		{"cd", _cd},
 		{NULL, NULL}
 	};
 

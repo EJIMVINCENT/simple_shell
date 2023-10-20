@@ -4,16 +4,18 @@
  * shellLoop - code main loop, reaptedly calls all functions
  *
  * @shellD: pointer to shellData struct
+ * @argv: pointer to command line input
  *
  */
 
-void shellLoop(shellData *shellD)
+void shellLoop(shellData *shellD, char *argv[])
 {
 	int status, check, i;
 	char *input;
 
 	status = 1;
-
+	/* initialize shellD variables */
+	setData(shellD, argv);
 	while (status == 1)
 	{
 		write(STDIN_FILENO, "($) ", 4);
@@ -25,12 +27,10 @@ void shellLoop(shellData *shellD)
 			if (input == NULL)
 				continue;
 
-
 			i = syntaxErrorCheck(input, shellD);
 			if (i == 1)
 			{
-				shellD->stat = 2;
-				free(input);
+				shellD->stat = 2, free(input);
 				continue;
 			}
 
@@ -39,11 +39,8 @@ void shellLoop(shellData *shellD)
 			shellD->count += 1;
 			free(input);
 		}
-
 		else
-		{
-			status = 0;
-			free(input);
-		}
+			status = 0, free(input);
 	}
+	freeEnviron(shellD);
 }

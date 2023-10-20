@@ -40,7 +40,7 @@ int stringCmp(char *str, const char *delim)
  */
 char *_strtok(char *string, const char *delim)
 {
-	static char *temp, *strEnd;
+	static char *t, *strEnd;
 	char *strStart;
 	unsigned int i, status;
 
@@ -48,30 +48,30 @@ char *_strtok(char *string, const char *delim)
 	{
 		if (stringCmp(string, delim))
 			return (NULL);
-		temp = string;
+		t = string;
 		i = _strlen(string);
 		strEnd = &string[i];
 	}
-	strStart = temp;
+	strStart = t;
 	if (strStart == strEnd)
 		return (NULL);
 
-	for (status = 0; *temp; temp++)
+	for (status = 0; *t; t++)
 	{
-		if (temp != strStart)
-			if (*temp && *(temp - 1) == '\0')
+		if (t != strStart)
+			if (*t && *(t - 1) == '\0')
 				break;
 		for (i = 0; delim[i]; i++)
 		{
-			if (*temp == delim[i])
+			if (*t == delim[i])
 			{
-				*temp = '\0';
-				if (temp == strStart)
+				*t = '\0';
+				if (t == strStart)
 					strStart++;
 				break;
 			}
 		}
-		if (status == 0 && *temp)
+		if (status == 0 && *t)
 			status = 1;
 	}
 	if (status == 0)
@@ -128,4 +128,33 @@ int _isdigit(const char *s)
 			return (0);
 	}
 	return (1);
+}
+
+/**
+ * strRev - revers an input string
+ *
+ * @input: input string to be reversed
+ *
+ * Return: no return
+ *
+ */
+
+void strRev(char *input)
+{
+	int n, i, j;
+	char *str, t;
+
+	for (n = 0; input[n]; n++)
+		;
+	str = input;
+
+	for (i = 0; i < (n - 1); i++)
+	{
+		for (j = i + 1; j > 0; j--)
+		{
+			t = *(str + j);
+			*(str + j) = *(str + (j - 1));
+			*(str + (j - 1)) = t;
+		}
+	}
 }

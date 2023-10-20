@@ -198,7 +198,7 @@ int _getline(char **input, size_t *n, FILE *inputStream);
 char *remComment(char *input);
 
 /* shellFunction.c */
-void shellLoop(shellData *shellD);
+void shellLoop(shellData *shellD, char *argv[]);
 
 
 /* stdlib_func.c */
@@ -213,6 +213,7 @@ char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 int _strspn(char *s, char *accept);
+void strRev(char *str);
 
 
 /* string_func.c */
@@ -241,6 +242,10 @@ int _unsetEnv(shellData *s);
 
 /* builtincoms2_func.c */
 char *setInfo(char *name, char *value);
-
+void cdPrevious(shellData *s);
+void cdParent(shellData *s);
+void cdTo(shellData *s);
+int _cd(shellData *s);
+void cdHome(shellData *s);
 
 #endif /* shell.h */

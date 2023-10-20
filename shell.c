@@ -15,13 +15,8 @@ int main(int ac, char *argv[])
 
 	(void)ac;
 
-	signal(SIGINT, Csignal);
-	/* initialize shellD variables */
-	setData(&shellD, argv);
 	/* code main loop */
-	shellLoop(&shellD);
-
-	freeEnviron(&shellD);
+	shellLoop(&shellD, argv);
 	if (shellD.stat < 0)
 		return (255);
 	return (shellD.stat);
@@ -41,6 +36,7 @@ void setData(shellData *shellD, char **argv)
 {
 	unsigned int i;
 
+	signal(SIGINT, Csignal);
 	shellD->argv = argv;
 	shellD->stat = 0;
 	shellD->count = 1;
