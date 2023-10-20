@@ -35,3 +35,8 @@ exeCom
 checkExec
 isCdir
 findPath
+errorEnv
+errorPath126
+getError
+errorNotFound
+errorExit
