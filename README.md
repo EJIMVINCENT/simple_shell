@@ -1,4 +1,4 @@
-This is an ALX Simple Shell Project. The Authors are Vincent and Erick.\n
+This is an ALX Simple Shell Project. The Authors are Vincent and Erick.
 Here are the functions created for the project:\n
 1. _strlen;
 2. _strcpy;
@@ -30,3 +30,8 @@ addComSep
 splitCommand
 charSwap
 findNext
+_Find
+exeCom
+checkExec
+isCdir
+findPath
