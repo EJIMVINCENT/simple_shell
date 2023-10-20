@@ -16,3 +16,7 @@ struct replaceVar
 struct builtin
 struct sep
 struct commands
+replaceVar
+varExpansion
+varCheck
+envRepCheck
