@@ -11,3 +11,8 @@ Here are the functions created for the project:\n
 9. _isdigit - checks if input string contains only digits;
 
 More on the Shell project:
+struct shellData
+struct replaceVar
+struct builtin
+struct sep
+struct commands
