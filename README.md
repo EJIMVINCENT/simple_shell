@@ -25,3 +25,8 @@ printSError
 countRepeat
 sepErrorCheck
 findFirst
+parseCommands
+addComSep
+splitCommand
+charSwap
+findNext
