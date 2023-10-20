@@ -9,3 +9,5 @@ Here are the functions created for the project:\n
 7. _strtok;
 8. _strcat - concatenate strings;
 9. _isdigit - checks if input string contains only digits;
+
+More on the Shell project:
