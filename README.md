@@ -20,3 +20,8 @@ replaceVar
 varExpansion
 varCheck
 envRepCheck
+syntaxErrorCheck
+printSError
+countRepeat
+sepErrorCheck
+findFirst
