@@ -41,7 +41,7 @@ int exeCom(shellData *shellD)
 	int status, check;
 	char *path;
 
-	check = 0; /*checkExec(shellD);*/
+	check = 0; 
 	if (check == -1)
 		return (1);
 	if (check == 0)
@@ -75,53 +75,6 @@ int exeCom(shellData *shellD)
 	shellD->stat = status / 256;
 	return (1);
 }
-
-/**
- * checkExec - checks if a command is executable
- *
- * @shellD: pointer to shellData struct
- *
- * Return: returns 1 if executable and 0 otherwise
- */
-
-int checkExec(shellData *shellD)
-{
-	int i;
-	char *command;
-	struct stat s;
-
-	command = shellD->commands[0];
-
-	for (i = 0; command[i]; i++)
-	{
-		if (command[i] == '.')
-		{
-			if (command[i + 1] == '.')
-				return (0);
-			if (command[i + 1] == '/')
-				continue;
-			else
-				break;
-		}
-		else if (command[i] == '/' && i != 0)
-		{
-			if (command[i + 1] == '.')
-				continue;
-			i++;
-			break;
-		}
-		else
-			break;
-	}
-	if (i == 0)
-		return (0);
-
-	if (stat(command + i, &s) == 0)
-		return (i);
-	getError(shellD, 127);
-	return (-1);
-}
-
 
 
 
