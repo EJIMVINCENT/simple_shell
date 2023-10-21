@@ -38,17 +38,25 @@ int _Find(shellData *shellD)
 int exeCom(shellData *shellD)
 {
 	pid_t pid;
-	int status;
+	int status, check;
 	char *path;
+
+	check = 0;
 
 	path = findPath(shellD->commands[0], shellD->_environ);
 	if (checkPermission(path, shellD) == 1)
 		return (1);
 
 	pid = fork();
-	if (pid == 0)
-		path = findPath(shellD->commands[0], shellD->_environ);
 
+	if (pid == 0)
+	{
+		if (check == 0)
+			path = findPath(shellD->commands[0], shellD->_environ);
+		else
+			path = shellD->commands[0];
+		execve(path + check, shellD->commands, shellD->_environ);
+	}
 	else if (pid < 0)
 	{
 		perror(shellD->argv[0]);
